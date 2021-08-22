@@ -1,6 +1,7 @@
 package com.example.recycler_cardviewexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,37 +28,50 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerView = findViewById(R.id.rvMain);
 
 
     }
 
     public void recyclerShow(View view){
-        recyclerView();
-    }
-
-    public void cardViewV(View view){
-
-        cardShooo();
-
-    }
-
-    public void cardShooo(){
-        addValueCard();
-        exe( );
-        CardAdapter cardAdapter = new CardAdapter(cardClassForAdapterList, this);
-        recyclerView.setAdapter( cardAdapter );
-
-    }
-
-    public void recyclerView( ){
 
         addValueRecycler();
         exe();
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(classForAdapters, this);
         recyclerView.setAdapter( recyclerAdapter );
+    }
+
+    public void cardViewVertical(View view){
+
+        addValueCard();
+        exe( );
+        adapterCard();
+
+    }
+
+    public void cardViewHorizontal(View view){
+
+        addValueCard();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        recyclerView.setLayoutManager( layoutManager );
+        recyclerView.setHasFixedSize( true );
+        adapterCard();
+
+    }
+
+    public void cardViewGrid(View view){
+
+        addValueCard();
+        LinearLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setHasFixedSize( true );
+        recyclerView.setLayoutManager( layoutManager );
+        adapterCard();
 
 
     }
+
+
 
     public void addValueCard(){
         cardClassForAdapterList.clear();
@@ -82,11 +96,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void exe(){
 
-        recyclerView = findViewById(R.id.rvMain);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager( layoutManager );
         recyclerView.setHasFixedSize(true);
 
+    }
+
+    public void adapterCard(){
+        CardAdapter cardAdapter = new CardAdapter(cardClassForAdapterList, this);
+        recyclerView.setAdapter( cardAdapter );
     }
 }
 

@@ -19,29 +19,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:onClick="recyclerShow"
-            android:text="Recycler" />
+            android:text="Recycler"
+            app:cornerRadius="0dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="cardViewV"
-            android:text="Card V" />
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="cardViewVertical"
+            android:text="Card V"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Card H" />
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="cardViewHorizontal"
+            android:text="Card H"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Grid" />
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="cardViewGrid"
+            android:text="Grid"
+            app:cornerRadius="0dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,7 +66,9 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
